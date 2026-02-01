@@ -806,10 +806,10 @@
             {
                 name: "Brötchen",
                 produkte: [
-                    { id: 1, name: "Normal", preis: 2.50, typ: "brötchen_normal" },
-                    { id: 2, name: "Mehrkorn", preis: 0.60, typ: "brötchen_mehrkorn" },
-                    { id: 3, name: "Sunny", preis: 0.60, typ: "brötchen_sunny" },
-                    { id: 4, name: "Roggen", preis: 0.60, typ: "brötchen_roggen" }
+                    { id: 1, name: "Normal", preis: 1.30, typ: "brötchen_normal" },
+                    { id: 2, name: "Mehrkorn", preis: 1.30, typ: "brötchen_mehrkorn" },
+                    { id: 3, name: "Sunny", preis: 1.30, typ: "brötchen_sunny" },
+                    { id: 4, name: "Roggen", preis: 1.30, typ: "brötchen_roggen" }
                 ]
             },
             {
@@ -821,16 +821,16 @@
             {
                 name: "Abendessen",
                 produkte: [
-                    { id: 6, name: "Normal", preis: 4.50, typ: "abendessen_normal" },
-                    { id: 7, name: "Vegetarisch", preis: 4.00, typ: "abendessen_vegetarisch" }
+                    { id: 6, name: "Normal", preis: 6.00, typ: "abendessen_normal" },
+                    { id: 7, name: "Vegetarisch", preis: 6.00, typ: "abendessen_vegetarisch" }
                 ]
             },
              {
                 name: "Getränke",
                 produkte: [
-                    { id: 8, name: "Kaffeeflatrate", preis: 2.00, typ: "sonstiges" },
-                    { id: 9, name: "Cola/Fanta/Sprite", preis: 2.00, typ: "sonstiges" },
-                    { id: 10, name: "Carolin Limo", preis: 2.00, typ: "sonstiges" }
+                    { id: 8, name: "Kaffeeflatrate", preis: 1.00, typ: "sonstiges" },
+                    { id: 9, name: "Cola/Fanta/Sprite", preis: 1.40, typ: "sonstiges" },
+                    { id: 10, name: "Carolin Limo", preis: 1.40, typ: "sonstiges" }
                     
                 ]
             },
@@ -843,8 +843,8 @@
             {
                 name: "Süßigkeiten",
                 produkte: [
-                    { id: 12, name: "Süßes Klein", preis: 0.50, typ: "sonstiges" },
-                    { id: 13, name: "Süßes Groß", preis: 1.00, typ: "sonstiges" }
+                    { id: 12, name: "Süßes Klein", preis: 0.40, typ: "sonstiges" },
+                    { id: 13, name: "Süßes Groß", preis: 0.80, typ: "sonstiges" }
                 ]
             }
         ];
