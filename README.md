@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="de">
 <head>
     
@@ -65,25 +65,28 @@
             font-size: 16px;
         }
 
-        /* Header-Buttons oben rechts */
-        .header-buttons {
+        /* Header-Buttons oben RECHTS untereinander */
+        .header-buttons-container {
             position: absolute;
             top: 40px;
             right: 40px;
             display: flex;
+            flex-direction: column;
             gap: 10px;
+            align-items: flex-end;
         }
 
         .header-btn {
             background: #34495e;
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            white-space: nowrap;
         }
 
         .header-btn:hover {
@@ -130,37 +133,9 @@
         }
 
         /* ========================================
-           BENUTZER-GRID - GROßE SCROLLBARE KARTEN
+           BENUTZER-GRID - NORMALE KARTEN (KEIN SCROLL-CONTAINER)
            ======================================== */
         
-        /* Container mit fester Höhe zum Scrollen */
-        .benutzer-scroll-container {
-            max-height: 600px;
-            overflow-y: auto;
-            padding-right: 10px;
-            /* Schönere Scrollbar */
-            scrollbar-width: thin;
-            scrollbar-color: #bdc3c7 #ecf0f1;
-        }
-
-        .benutzer-scroll-container::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .benutzer-scroll-container::-webkit-scrollbar-track {
-            background: #ecf0f1;
-            border-radius: 5px;
-        }
-
-        .benutzer-scroll-container::-webkit-scrollbar-thumb {
-            background: #bdc3c7;
-            border-radius: 5px;
-        }
-
-        .benutzer-scroll-container::-webkit-scrollbar-thumb:hover {
-            background: #95a5a6;
-        }
-
         .benutzer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -632,8 +607,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header-Buttons oben rechts -->
-        <div class="header-buttons">
+        <!-- Header-Buttons oben RECHTS untereinander -->
+        <div class="header-buttons-container">
             <button class="header-btn" onclick="kochBereichOeffnen()">👨‍🍳 Küche</button>
             <button class="header-btn" onclick="guthabenVerwaltungLoginOeffnen()">⚙️ Verwaltung</button>
         </div>
@@ -671,10 +646,8 @@
             -->
 
             
-            <!-- SCROLLBARE Liste mit größeren Karten -->
-            <div class="benutzer-scroll-container">
-                <div class="benutzer-grid" id="benutzer-liste"></div>
-            </div>
+            <!-- Benutzer-Liste (normale Seiten-Scroll) -->
+            <div class="benutzer-grid" id="benutzer-liste"></div>
             
             <!-- Nur bei Gästen: Name eingeben -->
             <div id="gast-bereich" class="hidden">
@@ -1561,32 +1534,13 @@
         /* ========================================
            TAGESABSCHLUSS
            
-           Setzt Einkaufsliste auf 0 und
-           erstellt ein Backup.
+           Setzt Einkaufsliste auf 0.
            ======================================== */
         
         function tagesabschluss() {
-            if (!confirm('Wirklich Tagesabschluss durchführen?\n\n- Einkaufsliste wird auf 0 gesetzt\n- Backup wird heruntergeladen')) {
+            if (!confirm('Wirklich Tagesabschluss durchführen?\n\nDie Einkaufsliste wird auf 0 gesetzt.')) {
                 return;
             }
-
-            // Erstelle Backup-Objekt
-            const backup = {
-                datum: new Date().toLocaleString('de-DE'),
-                benutzer: benutzer,
-                einkaufsliste: {...einkaufsliste}
-            };
-
-            // Wandle in Text um
-            const jsonString = JSON.stringify(backup, null, 2);
-            const blob = new Blob([jsonString], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            
-            // Starte Download
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'tagesabschluss-' + new Date().toISOString().split('T')[0] + '.json';
-            a.click();
 
             // Setze Einkaufsliste zurück
             einkaufsliste = {
@@ -1602,7 +1556,7 @@
             datenSpeichern();
             einkaufslisteAnzeigen();
 
-            meldungAnzeigen('Tagesabschluss durchgeführt! Einkaufsliste auf 0 gesetzt. Backup wurde in Downloads gespeichert.', 'erfolg');
+            meldungAnzeigen('Tagesabschluss durchgeführt! Einkaufsliste wurde auf 0 gesetzt.', 'erfolg');
         }
 
         /* ========================================
