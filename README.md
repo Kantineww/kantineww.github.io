@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="de">
 <head>
     
@@ -1535,11 +1535,50 @@
            TAGESABSCHLUSS
            
            Setzt Einkaufsliste auf 0.
+           
            ======================================== */
         
         function tagesabschluss() {
-            if (!confirm('Wirklich Tagesabschluss durchführen?\n\nDie Einkaufsliste wird auf 0 gesetzt.')) {
+            if (!confirm('Wirklich Tagesabschluss durchführen?\n\n- Einkaufsliste wird auf 0 gesetzt\n- Backup wird heruntergeladen')) {
                 return;
+            }
+
+            // Erstelle Backup-Objekt
+            const backup = {
+                datum: new Date().toLocaleString('de-DE'),
+                benutzer: benutzer,
+                einkaufsliste: {...einkaufsliste}
+            };
+
+            // Wandle in Text um
+            const jsonString = JSON.stringify(backup, null, 2);
+            
+            // Erstelle Download für iOS/Edge kompatibel
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const dateiname = 'tagesabschluss-' + new Date().toISOString().split('T')[0] + '.json';
+            
+            // Versuche Download mit mehreren Methoden (für iOS/Edge)
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = dateiname;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            
+            // iOS Safari braucht einen Klick-Event
+            try {
+                a.click();
+                
+                // Aufräumen nach kurzer Verzögerung
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+            } catch (error) {
+                // Fallback: Zeige den JSON-Text zum Kopieren
+                alert('Download fehlgeschlagen. Kopiere den folgenden Text und speichere ihn manuell:\n\n' + jsonString.substring(0, 200) + '...');
+                console.log('Backup-Daten:', jsonString);
             }
 
             // Setze Einkaufsliste zurück
@@ -1556,7 +1595,7 @@
             datenSpeichern();
             einkaufslisteAnzeigen();
 
-            meldungAnzeigen('Tagesabschluss durchgeführt! Einkaufsliste wurde auf 0 gesetzt.', 'erfolg');
+            meldungAnzeigen('Tagesabschluss durchgeführt! Einkaufsliste auf 0 gesetzt. Backup-Datei sollte heruntergeladen worden sein.', 'erfolg');
         }
 
         /* ========================================
