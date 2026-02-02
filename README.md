@@ -904,7 +904,17 @@
                 { id: "b15", name: "Hansmeyer", guthaben: 0.00 },
                 { id: "b16", name: "Gehle", guthaben: 0.00 },
                 { id: "b17", name: "Tente", guthaben: 0.00 },
-                { id: "b18", name: "Kiunke", guthaben: 0.00 }
+                { id: "b18", name: "Kiunke", guthaben: 0.00 },
+                { id: "b19", name: "Helmig", guthaben: 0.00 },
+                { id: "b20", name: "Woydak", guthaben: 0.00 },
+                { id: "b21", name: "Pieper", guthaben: 0.00 },
+                { id: "b22", name: "Arens", guthaben: 0.00 },
+                { id: "b23", name: "Juckel", guthaben: 0.00 },
+                { id: "b24", name: "Haase", guthaben: 0.00 },
+                { id: "b25", name: "Röhren", guthaben: 0.00 },
+                { id: "b26", name: "Epp", guthaben: 0.00 },
+                { id: "b27", name: "Zoller", guthaben: 0.00 },
+                { id: "b28", name: "Bartsch", guthaben: 0.00 },
             ],
             gaeste: [
                 // 12 leere Platzhalter für Gäste
