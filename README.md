@@ -807,15 +807,15 @@
                 name: "Brötchen",
                 produkte: [
                     { id: 1, name: "Normal", preis: 1.30, typ: "brötchen_normal" },
-                    { id: 2, name: "Mehrkorn", preis: 1.30, typ: "brötchen_mehrkorn" },
-                    { id: 3, name: "Sunny", preis: 1.30, typ: "brötchen_sunny" },
-                    { id: 4, name: "Roggen", preis: 1.30, typ: "brötchen_roggen" }
+                    { id: 2, name: "Mehrkorn", preis: 1.70, typ: "brötchen_mehrkorn" },
+                    { id: 3, name: "Sunny", preis: 1.50, typ: "brötchen_sunny" },
+                    { id: 4, name: "Roggen", preis: 1.70, typ: "brötchen_roggen" }
                 ]
             },
             {
                 name: "Eier",
                 produkte: [
-                    { id: 5, name: "Ei", preis: 0.80, typ: "ei" }
+                    { id: 5, name: "Ei", preis: 0.40, typ: "ei" }
                 ]
             },
             {
@@ -829,15 +829,15 @@
                 name: "Getränke",
                 produkte: [
                     { id: 8, name: "Kaffeeflatrate", preis: 1.00, typ: "sonstiges" },
-                    { id: 9, name: "Cola/Fanta/Sprite", preis: 1.40, typ: "sonstiges" },
-                    { id: 10, name: "Carolin Limo", preis: 1.40, typ: "sonstiges" }
+                    { id: 9, name: "Cola/Fanta/Limo", preis: 1.30, typ: "sonstiges" },
+                    
                     
                 ]
             },
             {
                 name: "Kuchen & Eis",
                 produkte: [
-                    { id: 11, name: "Kuchen/Eis", preis: 2.00, typ: "sonstiges" }
+                    { id: 11, name: "Kuchen/Eis", preis: 1.20, typ: "sonstiges" }
                 ]
             },
             {
