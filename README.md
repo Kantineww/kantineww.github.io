@@ -914,7 +914,7 @@
                 { id: "b25", name: "Röhren", guthaben: 0.00 },
                 { id: "b26", name: "Epp", guthaben: 0.00 },
                 { id: "b27", name: "Zoller", guthaben: 0.00 },
-                { id: "b28", name: "Bartsch", guthaben: 0.00 },
+                { id: "b28", name: "Bartsch", guthaben: 0.00 }
             ],
             gaeste: [
                 // 12 leere Platzhalter für Gäste
